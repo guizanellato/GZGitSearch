@@ -27,6 +27,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    /*
+     * Caso array esteja nil, iniciar ele
+     * Quando abrir a view, a searchBar ja se torna FirstResponder
+     */
     if (self.dataSource == nil) {
         self.dataSource = [[NSMutableArray alloc] init];
     }
