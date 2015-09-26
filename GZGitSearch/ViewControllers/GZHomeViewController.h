@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GZHomeViewController.h
 //  GZGitSearch
 //
 //  Created by Guilherme Zanellato on 9/25/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "BaseViewController.h"
 
+@interface GZHomeViewController : BaseViewController
 
 @end
-
