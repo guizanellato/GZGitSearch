@@ -74,9 +74,9 @@
         [Utils showAlertWithTitle:@"Error!" andMessage:@"Please, write something to search"];
         return;
     } else {
-        [self.searchBar resignFirstResponder];
-        
         [self searchWithString:self.searchBar.text andMethod:methodRepoSearch];
+        
+        [self.searchBar resignFirstResponder];
     }
 }
 

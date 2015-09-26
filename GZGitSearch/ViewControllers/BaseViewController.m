@@ -41,7 +41,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    
 }
 
 #pragma mark - IBActions
@@ -73,6 +73,10 @@
 
 - (void)didFinishWithSuccess:(NSDictionary *)jsonResponse forMethod:(MethodsType)methodType {
     
+    /*
+     * Metodo chamado quando há sucesso na chamada da API
+     * Cada metodo tem seu devido tratamento na classe: Response
+     */
     NSMutableArray *data;
     
     if (methodType == methodRepoSearch) {
@@ -86,7 +90,7 @@
     [self reloadContentWithArray:data fromMethod:methodType];
 }
 
-#pragma mark - Methods Services GitHub 
+#pragma mark - Methods Services GitHub
 
 - (void)searchWithString:(NSString *)string andMethod:(MethodsType)methodType {
     
@@ -134,7 +138,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlString];
     request.timeoutInterval = 15;
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
+    
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     

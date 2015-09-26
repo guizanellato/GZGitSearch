@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     /*
      * Caso array esteja nil, iniciar ele
      * Quando abrir a view, a searchBar ja se torna FirstResponder
@@ -36,7 +36,7 @@
     }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserTableViewCell" bundle:nil] forCellReuseIdentifier:@"UsersCell"];
-
+    
     
     self.searchBar.showsCancelButton = YES;
     [self.searchBar becomeFirstResponder];
@@ -50,7 +50,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    
 }
 
 #pragma mark - UISearchBar Delegate
@@ -73,12 +73,11 @@
         [Utils showAlertWithTitle:@"Error!" andMessage:@"Please, write something to search"];
         return;
     } else {
-        [self.searchBar resignFirstResponder];
-        
         [self searchWithString:self.searchBar.text andMethod:methodUserSearch];
+        
+        [self.searchBar resignFirstResponder];
     }
 }
-
 
 #pragma mark - UITableView Delegate && DataSource
 
