@@ -1,0 +1,6 @@
+framework module Pods_GZGitSearchTests {
+  umbrella header "Pods-GZGitSearchTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
