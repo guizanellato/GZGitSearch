@@ -272,9 +272,9 @@
 		2B4D7F731BB61A04002DD089 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2B0FB10C1BB8D32700829AD6 /* Following */,
 				2B4D7F801BB61E93002DD089 /* Base */,
 				2B0FB1011BB8C6D600829AD6 /* Followers */,
+				2B0FB10C1BB8D32700829AD6 /* Following */,
 				2B4D7F7E1BB61D6C002DD089 /* Home */,
 				2B4D7F841BB622C0002DD089 /* Repo Search */,
 				2B4D7F851BB622C2002DD089 /* User Search */,

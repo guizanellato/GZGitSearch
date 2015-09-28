@@ -234,7 +234,7 @@
             </objects>
             <point key="canvasLocation" x="1741" y="-31"/>
         </scene>
-        <!--Following View Controller-->
+        <!--Following-->
         <scene sceneID="Im2-sx-scc">
             <objects>
                 <viewController storyboardIdentifier="followingViewController" id="L5G-L8-loW" customClass="GZFollowingViewController" sceneMemberID="viewController">
@@ -250,6 +250,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="L5G-L8-loW" id="2uq-8a-HCC"/>
+                                    <outlet property="delegate" destination="L5G-L8-loW" id="33u-5o-aeN"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -261,6 +265,16 @@
                             <constraint firstItem="vB2-cG-Ntk" firstAttribute="top" secondItem="x52-fl-sYQ" secondAttribute="bottom" id="agV-nZ-1QC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Following" id="P92-3V-KDj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="3cN-J1-jDX">
+                            <connections>
+                                <action selector="back:" destination="L5G-L8-loW" id="3ZU-Te-BDg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="x52-fl-sYQ" id="nfu-bY-sBi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6x1-b2-TYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

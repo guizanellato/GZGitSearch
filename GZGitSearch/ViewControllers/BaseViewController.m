@@ -12,12 +12,17 @@
 #import "Reachability.h"
 #import "AFNetworking.h"
 #import "BetterNSLog.h"
+#import "UIActionSheet+Blocks.h"
 
 #import "Response.h"
 
 #import "GZSubscribersViewController.h"
 #import "GZFollowersViewController.h"
 #import "GZFollowingViewController.h"
+
+#define BUTTON_USER_PAGE 0
+#define BUTTON_USER_FOLLOWERS 1
+#define BUTTON_USER_FOLLOWING 2
 
 @interface BaseViewController ()
 
@@ -61,6 +66,24 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Methods OpenView
+
+- (void)openFollowersWithDataSource:(NSMutableArray *)data {
+    
+    GZFollowersViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"followersViewController"];
+    vc.dataSource = data;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)openFollowingWithDataSource:(NSMutableArray *)data {
+    
+    GZFollowingViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"followingViewController"];
+    vc.dataSource = data;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Methods
@@ -111,13 +134,8 @@
          * Porem seria um modo grotesco para realizar e dificil de dar uma manutencao futuramente
          */
         data = [[[Response alloc] init] getArFollowersFromJson:jsonResponse];
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        
-        GZFollowersViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"followersViewController"];
-        vc.dataSource = data;
 
-        [self.navigationController pushViewController:vc animated:YES];
+        [self openFollowersWithDataSource:data];
         
         return;
     } else if (methodType == methodFollowing) {
@@ -127,17 +145,39 @@
          */
         data = [[[Response alloc] init] getArFollowersFromJson:jsonResponse];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        
-        GZFollowingViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"followingViewController"];
-        vc.dataSource = data;
-        
-        [self.navigationController pushViewController:vc animated:YES];
+        [self openFollowingWithDataSource:data];
         
         return;
     }
     
     [self reloadContentWithArray:data fromMethod:methodType];
+}
+
+- (void)showOptionsForUser:(UserOwner *)user {
+    
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"What option?"
+                                                    delegate:nil
+                                           cancelButtonTitle:@"Cancel"
+                                      destructiveButtonTitle:nil
+                                           otherButtonTitles:@"Visit User Page", @"User Followers", @"User Following",nil];
+    
+    as.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    
+    as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+        
+        if (buttonIndex == BUTTON_USER_PAGE) {
+            // visitar pagina do usuario
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:user.userPageUrl]];
+        } else if (buttonIndex == BUTTON_USER_FOLLOWERS) {
+            // abrir lista de seguidores do usuario
+            [self searchWithString:user.userFollowers andMethod:methodFollowers];
+        } else if (buttonIndex == BUTTON_USER_FOLLOWING) {
+            [self searchWithString:user.userFollowing andMethod:methodFollowing];
+        }
+        
+    };
+    
+    [as showInView:self.view];
 }
 
 #pragma mark - Methods Services GitHub
@@ -172,17 +212,13 @@
          * Quando for do tipo busca por usuario, base colocar a string na desc.
          */
         url = [NSString stringWithFormat:@"https://api.github.com/search/users?q=%@", string];
-    } else if (methodType == methodSubscribers) {
+    } else if (methodType == methodSubscribers || methodType == methodFollowing || methodType == methodFollowers) {
         /*
-         * Quando for pegar os subscribers, o metodo ja passa a url pronta para o GET
-         */
-        url = string;
-    } else if (methodType == methodFollowers) {
-        /*
-         * Quando for pegar os seguidores, o metodo ja passa a url pronta para o GET
+         * Os seguintes metodos ja vem com a url pronta para o GET
          */
         url = string;
     }
+
     
     NSString *escapedUrl = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     

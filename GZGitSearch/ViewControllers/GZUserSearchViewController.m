@@ -11,7 +11,6 @@
 #import "GZUserTableViewCell.h"
 #import "UserOwner.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "UIActionSheet+Blocks.h"
 
 @interface GZUserSearchViewController () <UISearchBarDelegate>
 
@@ -157,29 +156,7 @@
     /*
      * Quando usuario clica na linha da tableview, aparece opcao de entrar na pagina do usuario que ele clicou
      */
-    UserOwner *user = [self.dataSource objectAtIndex:indexPath.row];
-    
-    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"What option?"
-                                                    delegate:nil
-                                           cancelButtonTitle:@"Cancel"
-                                      destructiveButtonTitle:nil
-                                           otherButtonTitles:@"Visit Owner Page", @"Followers", nil];
-    
-    as.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    
-    as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
-        
-        if (buttonIndex == 0) {
-            // visitar pagina do usuario
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:user.userPageUrl]];
-        } else if (buttonIndex == 1) {
-            // abrir lista de seguidores do usuario
-            [self searchWithString:user.userFollowers andMethod:methodFollowers];
-        }
-        
-    };
-    
-    [as showInView:self.view];
+    [self showOptionsForUser:[self.dataSource objectAtIndex:indexPath.row]];
 }
 
 #pragma mark - UIScrollView Delegate

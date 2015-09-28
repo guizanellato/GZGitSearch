@@ -15,6 +15,7 @@ static NSString * keyId = @"id";
 static NSString * keyUserName = @"login";
 static NSString * keyUserPageUrl = @"html_url";
 static NSString * keyFollowers = @"followers_url";
+static NSString * keyFollowing = @"following_url";
 
 @implementation UserOwner
 
@@ -24,6 +25,7 @@ static NSString * keyFollowers = @"followers_url";
 @synthesize userPageUrl;
 @synthesize userImage;
 @synthesize userFollowers;
+@synthesize userFollowing;
 
 - (UserOwner *)initWithDictionary:(NSDictionary *)dic {
     self = [super init];
@@ -33,8 +35,21 @@ static NSString * keyFollowers = @"followers_url";
         userName = [Utils getStringFrom:[dic objectForKey:keyUserName]];
         userPageUrl = [Utils getStringFrom:[dic objectForKey:keyUserPageUrl]];
         userFollowers = [Utils getStringFrom:[dic objectForKey:keyFollowers]];
+        userFollowing = [self removeParamFrom:[Utils getStringFrom:[dic objectForKey:keyFollowing]]];
     }
     return self;
+}
+
+- (NSString *)removeParamFrom:(NSString *)paramResponse {
+    NSString * str = @"{/other_user}";
+    
+    NSRange textRange =[paramResponse rangeOfString:str];
+    
+    if(textRange.location != NSNotFound) {
+        return [paramResponse stringByReplacingOccurrencesOfString:str withString:@""];
+    }
+    
+    return paramResponse;
 }
 
 @end

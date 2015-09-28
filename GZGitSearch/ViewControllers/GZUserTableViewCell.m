@@ -26,7 +26,6 @@
     self.loading.circleLayer.strokeColor = [UIColor lightGrayColor].CGColor;
     [self.loading beginRefreshing];
     
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

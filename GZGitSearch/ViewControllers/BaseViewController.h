@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Utils.h"
+#import "UserOwner.h"
 
 /*
  * Definicao dos tipos de metodos no servico que sera utilizado
@@ -44,5 +45,10 @@ typedef enum methodsService
  * Passa para a view, um array com os conteudos que ela deve exibir
  */
 - (void)reloadContentWithArray:(NSMutableArray *)arDataSource fromMethod:(MethodsType)methodType;
+
+/*!
+ * Metodo recebe um objeto do tipo UserOwner e apresenta opcoes ao usuario
+ */
+- (void)showOptionsForUser:(UserOwner *)user;
 
 @end
