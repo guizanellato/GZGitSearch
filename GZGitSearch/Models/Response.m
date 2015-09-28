@@ -71,6 +71,69 @@ static NSString *keyResponseData = @"items";
     return [[NSMutableArray alloc] init];
 }
 
+- (NSMutableArray *)getArFollowersFromJson:(NSDictionary *)json {
+    /*
+     * Primeiro validacao de json diferente de nil
+     * caso venha um item só no array, ele vem como NSDictionary
+     * entao é feita uma validacao para isso nao acontecer
+     */
+    if (json != nil) {
+        
+        NSArray *arData;
+        NSMutableArray *arFollowers = [[NSMutableArray alloc] init];
+        
+        if ([json isKindOfClass:[NSArray class]]) {
+            arData = (NSArray *)json;
+        } else {
+            arData = [[NSArray alloc] initWithObjects:json, nil];
+        }
+        
+        if (arData == nil || arData.count == 0) {
+            return [[NSMutableArray alloc] init];
+        }
+        
+        for (NSDictionary *dic in arData) {
+            [arFollowers addObject:[[UserOwner alloc] initWithDictionary:dic]];
+        }
+        
+        return arFollowers;
+    }
+    
+    return [[NSMutableArray alloc] init];
+}
+
+- (NSMutableArray *)getArFollowingFromJson:(NSDictionary *)json {
+    /*
+     * Primeiro validacao de json diferente de nil
+     * caso venha um item só no array, ele vem como NSDictionary
+     * entao é feita uma validacao para isso nao acontecer
+     */
+    if (json != nil) {
+        
+        NSArray *arData;
+        NSMutableArray *arFollowing = [[NSMutableArray alloc] init];
+        
+        if ([json isKindOfClass:[NSArray class]]) {
+            arData = (NSArray *)json;
+        } else {
+            arData = [[NSArray alloc] initWithObjects:json, nil];
+        }
+        
+        if (arData == nil || arData.count == 0) {
+            return [[NSMutableArray alloc] init];
+        }
+        
+        for (NSDictionary *dic in arData) {
+            [arFollowing addObject:[[UserOwner alloc] initWithDictionary:dic]];
+        }
+        
+        return arFollowing;
+    }
+    
+    return [[NSMutableArray alloc] init];
+}
+
+
 - (NSMutableArray *)getArUsersFromJson:(NSDictionary *)json {
     /*
      * Primeiro o array de itens do json é colocado na var: arData

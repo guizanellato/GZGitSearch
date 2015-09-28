@@ -11,8 +11,6 @@
 #import "RepositoryTableViewCell.h"
 #import "Repository.h"
 
-#import "GZSubscribersViewController.h"
-
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIActionSheet+Blocks.h"
 
@@ -43,15 +41,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"openSubscribers"]) {
-        GZSubscribersViewController *vc = segue.destinationViewController;
-        vc.dataSource = sender;
-    }
 }
 
 #pragma mark - UISearchBar Delegate
@@ -122,6 +111,7 @@
          */
         cell.imgUserOwner.image = repo.userOwner.userImage;
         cell.loading.hidden = YES;
+        
         [Utils setAnimationToImageView:cell.imgUserOwner];
         
     } else {
@@ -140,16 +130,18 @@
              [cell.loading setHidden:YES];
              
              if (image && finished && error == nil) {
+                 
                  dispatch_sync(dispatch_get_main_queue(), ^{
+                     
                      cell.imgUserOwner.image = image;
                      repo.userOwner.userImage = image;
-                     [Utils setAnimationToImageView:cell.imgUserOwner];
+                     
                  });
              } else if (error != nil) {
-                 UIImage *img = [UIImage imageNamed:@"imageUserDefault.jpg"];
-                 cell.imgUserOwner.image = img;
-                 [Utils setAnimationToImageView:cell.imgUserOwner];
+                 cell.imgUserOwner.image = [UIImage imageNamed:@"imageUserDefault.jpg"];
              }
+             
+             [Utils setAnimationToImageView:cell.imgUserOwner];
          }];
     }
     
@@ -213,8 +205,6 @@
     if (methodType == methodRepoSearch) {
         self.dataSource = arDataSource;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
-    } else if (methodType == methodSubscribers) {
-        [self performSegueWithIdentifier:@"openSubscribers" sender:arDataSource];
     }
 }
 

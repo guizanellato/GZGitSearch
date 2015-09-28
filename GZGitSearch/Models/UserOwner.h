@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSNumber * userId;
 @property (nonatomic, strong) NSString * userName;
 @property (nonatomic, strong) NSString * userPageUrl;
+@property (nonatomic, strong) NSString * userFollowers;
 
 @property (nonatomic, strong) UIImage *userImage;
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		12B0243E06025E50C504AD53 /* Pods_GZGitSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3631A944D19DC1FDE1C2D558 /* Pods_GZGitSearchTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2B0FB1051BB8C70100829AD6 /* GZUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FB1031BB8C70100829AD6 /* GZUserTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2B0FB1061BB8C70100829AD6 /* GZUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0FB1041BB8C70100829AD6 /* GZUserTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		2B0FB10B1BB8CA4600829AD6 /* GZFollowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FB10A1BB8CA4600829AD6 /* GZFollowersViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2B0FB10F1BB8D33F00829AD6 /* GZFollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FB10E1BB8D33F00829AD6 /* GZFollowingViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B4D7F2D1BB618CD002DD089 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D7F2C1BB618CD002DD089 /* main.m */; };
 		2B4D7F301BB618CD002DD089 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D7F2F1BB618CD002DD089 /* AppDelegate.m */; };
 		2B4D7F3B1BB618CD002DD089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4D7F3A1BB618CD002DD089 /* Assets.xcassets */; };
@@ -28,10 +32,6 @@
 		2B4D7FA41BB64DA8002DD089 /* imageUserDefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B4D7FA31BB64DA8002DD089 /* imageUserDefault.jpg */; settings = {ASSET_TAGS = (); }; };
 		2B4D7FA61BB64E65002DD089 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4D7FA51BB64E65002DD089 /* RepositoryTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		2B4D7FAA1BB65374002DD089 /* GZSubscribersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D7FA91BB65374002DD089 /* GZSubscribersViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2B4D7FAF1BB65E52002DD089 /* SubscribersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D7FAD1BB65E52002DD089 /* SubscribersTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		2B4D7FB01BB65E52002DD089 /* SubscribersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4D7FAE1BB65E52002DD089 /* SubscribersTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		2B4D7FB51BB66380002DD089 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D7FB31BB66380002DD089 /* UserTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		2B4D7FB61BB66380002DD089 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4D7FB41BB66380002DD089 /* UserTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		8533DFC5F9B8224AF948177A /* Pods_GZGitSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9381C3F8E3A1D5ACB30FCE42 /* Pods_GZGitSearch.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DE5B4A684175DB854CC9E0DC /* Pods_GZGitSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2538D161CA82AD43363F5B1 /* Pods_GZGitSearchUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -56,6 +56,13 @@
 /* Begin PBXFileReference section */
 		21DFB91EBDD8228F9E0B4CE4 /* Pods-GZGitSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GZGitSearchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GZGitSearchTests/Pods-GZGitSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		29F40EB3E9359EC30DE11581 /* Pods-GZGitSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GZGitSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GZGitSearch/Pods-GZGitSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		2B0FB1021BB8C70100829AD6 /* GZUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZUserTableViewCell.h; sourceTree = "<group>"; };
+		2B0FB1031BB8C70100829AD6 /* GZUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZUserTableViewCell.m; sourceTree = "<group>"; };
+		2B0FB1041BB8C70100829AD6 /* GZUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZUserTableViewCell.xib; sourceTree = "<group>"; };
+		2B0FB1091BB8CA4600829AD6 /* GZFollowersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZFollowersViewController.h; sourceTree = "<group>"; };
+		2B0FB10A1BB8CA4600829AD6 /* GZFollowersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZFollowersViewController.m; sourceTree = "<group>"; };
+		2B0FB10D1BB8D33F00829AD6 /* GZFollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZFollowingViewController.h; sourceTree = "<group>"; };
+		2B0FB10E1BB8D33F00829AD6 /* GZFollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZFollowingViewController.m; sourceTree = "<group>"; };
 		2B4D7F281BB618CD002DD089 /* GZGitSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GZGitSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4D7F2C1BB618CD002DD089 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B4D7F2E1BB618CD002DD089 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,12 +102,6 @@
 		2B4D7FA51BB64E65002DD089 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		2B4D7FA81BB65374002DD089 /* GZSubscribersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZSubscribersViewController.h; sourceTree = "<group>"; };
 		2B4D7FA91BB65374002DD089 /* GZSubscribersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZSubscribersViewController.m; sourceTree = "<group>"; };
-		2B4D7FAC1BB65E52002DD089 /* SubscribersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribersTableViewCell.h; sourceTree = "<group>"; };
-		2B4D7FAD1BB65E52002DD089 /* SubscribersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribersTableViewCell.m; sourceTree = "<group>"; };
-		2B4D7FAE1BB65E52002DD089 /* SubscribersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscribersTableViewCell.xib; sourceTree = "<group>"; };
-		2B4D7FB21BB66380002DD089 /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
-		2B4D7FB31BB66380002DD089 /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
-		2B4D7FB41BB66380002DD089 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		3631A944D19DC1FDE1C2D558 /* Pods_GZGitSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GZGitSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9381C3F8E3A1D5ACB30FCE42 /* Pods_GZGitSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GZGitSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FEF8F321F75D11300081DA /* Pods-GZGitSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GZGitSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-GZGitSearch/Pods-GZGitSearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +139,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0FB1011BB8C6D600829AD6 /* Followers */ = {
+			isa = PBXGroup;
+			children = (
+				2B0FB1091BB8CA4600829AD6 /* GZFollowersViewController.h */,
+				2B0FB10A1BB8CA4600829AD6 /* GZFollowersViewController.m */,
+			);
+			name = Followers;
+			sourceTree = "<group>";
+		};
+		2B0FB1071BB8C70500829AD6 /* Users Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B0FB1021BB8C70100829AD6 /* GZUserTableViewCell.h */,
+				2B0FB1031BB8C70100829AD6 /* GZUserTableViewCell.m */,
+				2B0FB1041BB8C70100829AD6 /* GZUserTableViewCell.xib */,
+			);
+			name = "Users Cell";
+			sourceTree = "<group>";
+		};
+		2B0FB10C1BB8D32700829AD6 /* Following */ = {
+			isa = PBXGroup;
+			children = (
+				2B0FB10D1BB8D33F00829AD6 /* GZFollowingViewController.h */,
+				2B0FB10E1BB8D33F00829AD6 /* GZFollowingViewController.m */,
+			);
+			name = Following;
+			sourceTree = "<group>";
+		};
 		2B4D7F1F1BB618CD002DD089 = {
 			isa = PBXGroup;
 			children = (
@@ -243,10 +272,13 @@
 		2B4D7F731BB61A04002DD089 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2B0FB10C1BB8D32700829AD6 /* Following */,
 				2B4D7F801BB61E93002DD089 /* Base */,
+				2B0FB1011BB8C6D600829AD6 /* Followers */,
 				2B4D7F7E1BB61D6C002DD089 /* Home */,
 				2B4D7F841BB622C0002DD089 /* Repo Search */,
 				2B4D7F851BB622C2002DD089 /* User Search */,
+				2B0FB1071BB8C70500829AD6 /* Users Cell */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -348,29 +380,15 @@
 		2B4D7FA71BB65354002DD089 /* Subscribers */ = {
 			isa = PBXGroup;
 			children = (
-				2B4D7FAB1BB65E3E002DD089 /* Subscribers cell */,
 				2B4D7FA81BB65374002DD089 /* GZSubscribersViewController.h */,
 				2B4D7FA91BB65374002DD089 /* GZSubscribersViewController.m */,
 			);
 			name = Subscribers;
 			sourceTree = "<group>";
 		};
-		2B4D7FAB1BB65E3E002DD089 /* Subscribers cell */ = {
-			isa = PBXGroup;
-			children = (
-				2B4D7FAC1BB65E52002DD089 /* SubscribersTableViewCell.h */,
-				2B4D7FAD1BB65E52002DD089 /* SubscribersTableViewCell.m */,
-				2B4D7FAE1BB65E52002DD089 /* SubscribersTableViewCell.xib */,
-			);
-			name = "Subscribers cell";
-			sourceTree = "<group>";
-		};
 		2B4D7FB11BB66370002DD089 /* User Cell */ = {
 			isa = PBXGroup;
 			children = (
-				2B4D7FB21BB66380002DD089 /* UserTableViewCell.h */,
-				2B4D7FB31BB66380002DD089 /* UserTableViewCell.m */,
-				2B4D7FB41BB66380002DD089 /* UserTableViewCell.xib */,
 			);
 			name = "User Cell";
 			sourceTree = "<group>";
@@ -510,9 +528,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4D7FA61BB64E65002DD089 /* RepositoryTableViewCell.xib in Resources */,
-				2B4D7FB01BB65E52002DD089 /* SubscribersTableViewCell.xib in Resources */,
 				2B4D7F791BB61A04002DD089 /* Main.storyboard in Resources */,
-				2B4D7FB61BB66380002DD089 /* UserTableViewCell.xib in Resources */,
+				2B0FB1061BB8C70100829AD6 /* GZUserTableViewCell.xib in Resources */,
 				2B4D7F3B1BB618CD002DD089 /* Assets.xcassets in Resources */,
 				2B4D7FA41BB64DA8002DD089 /* imageUserDefault.jpg in Resources */,
 				2B4D7F781BB61A04002DD089 /* LaunchScreen.storyboard in Resources */,
@@ -665,15 +682,16 @@
 			files = (
 				2B4D7F9E1BB63ED5002DD089 /* UserOwner.m in Sources */,
 				2B4D7F771BB61A04002DD089 /* GZGitSearch.xcdatamodeld in Sources */,
-				2B4D7FB51BB66380002DD089 /* UserTableViewCell.m in Sources */,
+				2B0FB1051BB8C70100829AD6 /* GZUserTableViewCell.m in Sources */,
 				2B4D7F961BB63CE9002DD089 /* Repository.m in Sources */,
 				2B4D7FA21BB645B9002DD089 /* RepositoryTableViewCell.m in Sources */,
 				2B4D7F831BB61EAD002DD089 /* BaseViewController.m in Sources */,
 				2B4D7F8B1BB622E8002DD089 /* GZUserSearchViewController.m in Sources */,
+				2B0FB10F1BB8D33F00829AD6 /* GZFollowingViewController.m in Sources */,
 				2B4D7F8E1BB626DE002DD089 /* Utils.m in Sources */,
+				2B0FB10B1BB8CA4600829AD6 /* GZFollowersViewController.m in Sources */,
 				2B4D7F301BB618CD002DD089 /* AppDelegate.m in Sources */,
 				2B4D7F881BB622DA002DD089 /* GZRepoSearchViewController.m in Sources */,
-				2B4D7FAF1BB65E52002DD089 /* SubscribersTableViewCell.m in Sources */,
 				2B4D7F911BB63346002DD089 /* Response.m in Sources */,
 				2B4D7F7D1BB61D55002DD089 /* GZHomeViewController.m in Sources */,
 				2B4D7F2D1BB618CD002DD089 /* main.m in Sources */,

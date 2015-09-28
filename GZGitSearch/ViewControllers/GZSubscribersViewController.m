@@ -9,7 +9,7 @@
 #import "GZSubscribersViewController.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "SubscribersTableViewCell.h"
+#import "GZUserTableViewCell.h"
 #import "UserOwner.h"
 #import "UIActionSheet+Blocks.h"
 
@@ -29,7 +29,7 @@
         self.dataSource = [[NSMutableArray alloc] init];
     }
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"SubscribersTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellTableView"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"GZUserTableViewCell" bundle:nil] forCellReuseIdentifier:@"usersCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,16 +51,14 @@
     /*
      * Carrega celula de Subscribers que tem imagem e nome do usuario
      */
-    SubscribersTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubscribersCell"];
+    GZUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"usersCell"];
     
     cell = nil;
     
     if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SubscribersTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GZUserTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UserOwner *user = [self.dataSource objectAtIndex:indexPath.row];
     
@@ -73,6 +71,7 @@
          */
         cell.imgUser.image = user.userImage;
         cell.loading.hidden = YES;
+        
         [Utils setAnimationToImageView:cell.imgUser];
         
     } else {
@@ -91,16 +90,19 @@
              [cell.loading setHidden:YES];
              
              if (image && finished && error == nil) {
+                 
                  dispatch_sync(dispatch_get_main_queue(), ^{
+                     
                      cell.imgUser.image = image;
                      user.userImage = image;
-                     [Utils setAnimationToImageView:cell.imgUser];
+                     
                  });
              } else if (error != nil) {
-                 UIImage *img = [UIImage imageNamed:@"imageUserDefault.jpg"];
-                 cell.imgUser.image = img;
-                 [Utils setAnimationToImageView:cell.imgUser];
+                 cell.imgUser.image = [UIImage imageNamed:@"imageUserDefault.jpg"];
              }
+             
+             [Utils setAnimationToImageView:cell.imgUser];
+
          }];
     }
     
@@ -118,7 +120,7 @@
                                                     delegate:nil
                                            cancelButtonTitle:@"Cancel"
                                       destructiveButtonTitle:nil
-                                           otherButtonTitles:@"Visit Owner Page", nil];
+                                           otherButtonTitles:@"Visit Owner Page", @"Followers", nil];
     
     as.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
@@ -126,6 +128,9 @@
         if (buttonIndex == 0) {
             // visitar pagina do usuario
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:user.userPageUrl]];
+        } else if (buttonIndex == 1) {
+            // abrir lista de seguidores do usuario
+            [self searchWithString:user.userFollowers andMethod:methodFollowers];
         }
     };
     

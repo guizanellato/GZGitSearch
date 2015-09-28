@@ -188,6 +188,84 @@
             </objects>
             <point key="canvasLocation" x="1061" y="710"/>
         </scene>
+        <!--Followers-->
+        <scene sceneID="Sna-Ic-Fvp">
+            <objects>
+                <viewController storyboardIdentifier="followersViewController" id="Pun-8G-zMr" customClass="GZFollowersViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="35f-ce-AKM"/>
+                        <viewControllerLayoutGuide type="bottom" id="O2b-g3-qdk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bBV-iL-uQ3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ec2-3r-OTc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pun-8G-zMr" id="YHg-FZ-qH0"/>
+                                    <outlet property="delegate" destination="Pun-8G-zMr" id="ST7-7J-nL4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ec2-3r-OTc" firstAttribute="top" secondItem="bBV-iL-uQ3" secondAttribute="top" id="CRb-Mt-GFb"/>
+                            <constraint firstItem="Ec2-3r-OTc" firstAttribute="leading" secondItem="bBV-iL-uQ3" secondAttribute="leading" id="E7p-Kt-q0g"/>
+                            <constraint firstAttribute="trailing" secondItem="Ec2-3r-OTc" secondAttribute="trailing" id="cz2-3z-Jek"/>
+                            <constraint firstItem="O2b-g3-qdk" firstAttribute="top" secondItem="Ec2-3r-OTc" secondAttribute="bottom" id="yeo-5N-6d6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Followers" id="JQC-0G-V7s">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="B26-LA-3Dj">
+                            <connections>
+                                <action selector="back:" destination="Pun-8G-zMr" id="mMk-bj-jhB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Ec2-3r-OTc" id="R1X-CK-fRD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrZ-z8-RL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1741" y="-31"/>
+        </scene>
+        <!--Following View Controller-->
+        <scene sceneID="Im2-sx-scc">
+            <objects>
+                <viewController storyboardIdentifier="followingViewController" id="L5G-L8-loW" customClass="GZFollowingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZcV-kW-aLH"/>
+                        <viewControllerLayoutGuide type="bottom" id="vB2-cG-Ntk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U9M-T1-VTw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x52-fl-sYQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x52-fl-sYQ" firstAttribute="leading" secondItem="U9M-T1-VTw" secondAttribute="leading" id="5Lt-a0-aJw"/>
+                            <constraint firstAttribute="trailing" secondItem="x52-fl-sYQ" secondAttribute="trailing" id="MmD-Sk-KvU"/>
+                            <constraint firstItem="x52-fl-sYQ" firstAttribute="top" secondItem="U9M-T1-VTw" secondAttribute="top" id="SZO-Ok-nLx"/>
+                            <constraint firstItem="vB2-cG-Ntk" firstAttribute="top" secondItem="x52-fl-sYQ" secondAttribute="bottom" id="agV-nZ-1QC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6x1-b2-TYX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2438" y="-31"/>
+        </scene>
         <!--Subscribers-->
         <scene sceneID="Ts2-m1-jSl">
             <objects>

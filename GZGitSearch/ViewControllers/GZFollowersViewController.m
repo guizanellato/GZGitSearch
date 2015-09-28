@@ -1,82 +1,40 @@
 //
-//  GZUserSearchViewController.m
+//  GZFollowersViewController.m
 //  GZGitSearch
 //
-//  Created by Guilherme Zanellato on 9/25/15.
+//  Created by Guilherme Zanellato on 9/27/15.
 //  Copyright © 2015 Guilherme Zanellato. All rights reserved.
 //
 
-#import "GZUserSearchViewController.h"
+#import "GZFollowersViewController.h"
 
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "GZUserTableViewCell.h"
 #import "UserOwner.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "UIActionSheet+Blocks.h"
 
-@interface GZUserSearchViewController () <UISearchBarDelegate>
-
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@interface GZFollowersViewController ()
 
 @end
 
-@implementation GZUserSearchViewController
+@implementation GZFollowersViewController
 
-#pragma mark - UIViewController
+#pragma mark - UIViewController LifeCycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    /*
-     * Caso array esteja nil, iniciar ele
-     * Quando abrir a view, a searchBar ja se torna FirstResponder
-     */
     if (self.dataSource == nil) {
         self.dataSource = [[NSMutableArray alloc] init];
     }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"GZUserTableViewCell" bundle:nil] forCellReuseIdentifier:@"usersCell"];
-    
-    
-    self.searchBar.showsCancelButton = YES;
-    [self.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-}
-
-#pragma mark - UISearchBar Delegate
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    /*
-     * Quando usuario clicar em Cancelar, apagar o texto da SearchBar
-     */
-    self.searchBar.text = @"";
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    /*
-     * Usuario clica para buscar
-     * Caso nao tenha digitado nada, apresentar alert de erro ao usuario
-     * Caso tenha digitado, realizar chamada de busca
-     */
-    if (searchBar.text == nil || [searchBar.text isEqualToString:@""]) {
-        [Utils showAlertWithTitle:@"Error!" andMessage:@"Please, write something to search"];
-        return;
-    } else {
-        [self searchWithString:self.searchBar.text andMethod:methodUserSearch];
-        
-        [self.searchBar resignFirstResponder];
-    }
 }
 
 #pragma mark - UITableView Delegate && DataSource
@@ -90,6 +48,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
+     * Carrega celula de Subscribers que tem imagem e nome do usuario
+     */
     GZUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"usersCell"];
     
     cell = nil;
@@ -98,7 +59,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"GZUserTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-        
+    
     UserOwner *user = [self.dataSource objectAtIndex:indexPath.row];
     
     cell.lblUserName.text = user.userName;
@@ -141,6 +102,7 @@
              }
              
              [Utils setAnimationToImageView:cell.imgUser];
+             
          }];
     }
     
@@ -148,11 +110,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-     * Quando usuario clicar na tableview em qualquer linha, tirar o teclado da search
-     * Para assim, nao atrapalhar o usuario
-     */
-    [self.searchBar resignFirstResponder];
     
     /*
      * Quando usuario clica na linha da tableview, aparece opcao de entrar na pagina do usuario que ele clicou
@@ -168,7 +125,6 @@
     as.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
     as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
-        
         if (buttonIndex == 0) {
             // visitar pagina do usuario
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:user.userPageUrl]];
@@ -176,34 +132,10 @@
             // abrir lista de seguidores do usuario
             [self searchWithString:user.userFollowers andMethod:methodFollowers];
         }
-        
     };
     
     [as showInView:self.view];
 }
 
-#pragma mark - UIScrollView Delegate
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    /*
-     * Quando usuario der scroll na tableview, tirar o teclado da search
-     * Para assim, nao atrapalhar o usuario
-     */
-    [self.searchBar resignFirstResponder];
-}
-
-#pragma mark - Methods
-
-- (void)reloadContentWithArray:(NSMutableArray *)arDataSource fromMethod:(MethodsType)methodType {
-    /*
-     * Metodo recebe array para carregar a tableView
-     * Poderia ser usado o metodo [self.tableView reloadData]
-     * Porem o reloadSections permite uma certa animacao para a tableView
-     */
-    if (methodType == methodUserSearch) {
-        self.dataSource = arDataSource;
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
-    }
-}
 
 @end

@@ -1,15 +1,14 @@
 //
-//  SubscribersTableViewCell.m
+//  GZUserTableViewCell.m
 //  GZGitSearch
 //
-//  Created by Guilherme Zanellato on 9/26/15.
+//  Created by Guilherme Zanellato on 9/27/15.
 //  Copyright © 2015 Guilherme Zanellato. All rights reserved.
 //
 
-#import "SubscribersTableViewCell.h"
+#import "GZUserTableViewCell.h"
 
-
-@implementation SubscribersTableViewCell
+@implementation GZUserTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -26,11 +25,13 @@
     self.loading.circleLayer.lineWidth = 2.0;
     self.loading.circleLayer.strokeColor = [UIColor lightGrayColor].CGColor;
     [self.loading beginRefreshing];
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

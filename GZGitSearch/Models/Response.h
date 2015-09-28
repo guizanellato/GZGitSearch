@@ -28,4 +28,16 @@
  */
 - (NSMutableArray *)getArUsersFromJson:(NSDictionary *)json;
 
+/*!
+ * Metodo recebe um json do response
+ * retorna um array de objetos UserOwner com os seguidores
+ */
+- (NSMutableArray *)getArFollowersFromJson:(NSDictionary *)json;
+
+/*!
+ * Metodo recebe um json do response
+ * retorna um array de objetos UserOwner com os que o usuario esta seguindo
+ */
+- (NSMutableArray *)getArFollowingFromJson:(NSDictionary *)json;
+
 @end

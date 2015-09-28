@@ -14,6 +14,7 @@ static NSString * keyAvatarUrl = @"avatar_url";
 static NSString * keyId = @"id";
 static NSString * keyUserName = @"login";
 static NSString * keyUserPageUrl = @"html_url";
+static NSString * keyFollowers = @"followers_url";
 
 @implementation UserOwner
 
@@ -22,6 +23,7 @@ static NSString * keyUserPageUrl = @"html_url";
 @synthesize userName;
 @synthesize userPageUrl;
 @synthesize userImage;
+@synthesize userFollowers;
 
 - (UserOwner *)initWithDictionary:(NSDictionary *)dic {
     self = [super init];
@@ -30,6 +32,7 @@ static NSString * keyUserPageUrl = @"html_url";
         userId = [Utils getNumberFrom:[dic objectForKey:keyId]];
         userName = [Utils getStringFrom:[dic objectForKey:keyUserName]];
         userPageUrl = [Utils getStringFrom:[dic objectForKey:keyUserPageUrl]];
+        userFollowers = [Utils getStringFrom:[dic objectForKey:keyFollowers]];
     }
     return self;
 }

@@ -1,8 +1,8 @@
 //
-//  SubscribersTableViewCell.h
+//  GZUserTableViewCell.h
 //  GZGitSearch
 //
-//  Created by Guilherme Zanellato on 9/26/15.
+//  Created by Guilherme Zanellato on 9/27/15.
 //  Copyright © 2015 Guilherme Zanellato. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 #import <JTMaterialSpinner/JTMaterialSpinner.h>
 
-@interface SubscribersTableViewCell : UITableViewCell
+@interface GZUserTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet JTMaterialSpinner *loading;
 @property (weak, nonatomic) IBOutlet UIImageView *imgUser;

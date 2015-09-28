@@ -17,7 +17,9 @@ typedef enum methodsService
 {
     methodUserSearch,
     methodRepoSearch,
-    methodSubscribers
+    methodSubscribers,
+    methodFollowers,
+    methodFollowing
 } MethodsType;
 
 @interface BaseViewController : UIViewController

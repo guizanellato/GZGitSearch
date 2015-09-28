@@ -15,6 +15,10 @@
 
 #import "Response.h"
 
+#import "GZSubscribersViewController.h"
+#import "GZFollowersViewController.h"
+#import "GZFollowingViewController.h"
+
 @interface BaseViewController ()
 
 @end
@@ -41,6 +45,15 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    /*
+     * prepareForSegue usado para passar parametros para a "proxima" viewController
+     */
+    
+    if ([segue.identifier isEqualToString:@"openSubscribers"]) {
+        GZSubscribersViewController *vc = segue.destinationViewController;
+        vc.dataSource = (NSMutableArray *)sender;
+    }
     
 }
 
@@ -77,14 +90,51 @@
      * Metodo chamado quando há sucesso na chamada da API
      * Cada metodo tem seu devido tratamento na classe: Response
      */
+
     NSMutableArray *data;
     
     if (methodType == methodRepoSearch) {
         data = [[[Response alloc] init] getArRepositorysFromJson:jsonResponse];
-    } else if (methodType == methodSubscribers) {
-        data = [[[Response alloc] init] getArSubscribersFromJson:jsonResponse];
     } else if (methodType == methodUserSearch) {
         data = [[[Response alloc] init] getArUsersFromJson:jsonResponse];
+    } else if (methodType == methodSubscribers) {
+        data = [[[Response alloc] init] getArSubscribersFromJson:jsonResponse];
+        
+        [self performSegueWithIdentifier:@"openSubscribers" sender:data];
+        
+        return;
+    } else if (methodType == methodFollowers) {
+        /*
+         * No caso de abrir os Followers, nao é utilizado performSegue
+         * Motivo: dentro de followers, pode abrir followers novamente e assim por diante eternamente
+         * Um jeito para se resolver seria criar um button "fantasma" e criar o segue para a propria view
+         * Porem seria um modo grotesco para realizar e dificil de dar uma manutencao futuramente
+         */
+        data = [[[Response alloc] init] getArFollowersFromJson:jsonResponse];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        
+        GZFollowersViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"followersViewController"];
+        vc.dataSource = data;
+
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        return;
+    } else if (methodType == methodFollowing) {
+        /*
+         * Caso de quem o usuario esta seguindo, seria igual o de Followers
+         * Pelo motivo de que um pode abrir outro igual (mesma viewController)
+         */
+        data = [[[Response alloc] init] getArFollowersFromJson:jsonResponse];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        
+        GZFollowingViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"followingViewController"];
+        vc.dataSource = data;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        return;
     }
     
     [self reloadContentWithArray:data fromMethod:methodType];
@@ -95,7 +145,7 @@
 - (void)searchWithString:(NSString *)string andMethod:(MethodsType)methodType {
     
     /*
-     * Priemiro é feita validacao da conexao do usuario, caso nao possua conexao, nao devera realizar a busca
+     * Primeiro é feita validacao da conexao do usuario, caso nao possua conexao, nao devera realizar a busca
      * Codigo recebe a string para busca e o tipo do metodo
      * Request possui um timeOut de 15s.
      * Caso de algum erro, um alert será apresentado ao usuario informando o erro
@@ -125,6 +175,11 @@
     } else if (methodType == methodSubscribers) {
         /*
          * Quando for pegar os subscribers, o metodo ja passa a url pronta para o GET
+         */
+        url = string;
+    } else if (methodType == methodFollowers) {
+        /*
+         * Quando for pegar os seguidores, o metodo ja passa a url pronta para o GET
          */
         url = string;
     }
@@ -169,7 +224,9 @@
          */
         [self stopLoading];
         [self didFinishWithError];
+        
         DLog("%@", error.description);
+        
     }];
     
     [operation start];
