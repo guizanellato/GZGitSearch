@@ -167,7 +167,7 @@
                                                     delegate:nil
                                            cancelButtonTitle:@"Cancel"
                                       destructiveButtonTitle:nil
-                                           otherButtonTitles:@"Visit Owner Page", @"Subscribers", @"Owner Followers", @"Owner Following",nil];
+                                           otherButtonTitles:@"Visit Owner Page", @"Subscribers", @"Owner Followers", @"Owner Following", @"Owner Perfil", nil];
     
     as.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
@@ -182,6 +182,8 @@
             [self searchWithString:repo.userOwner.userFollowers andMethod:methodFollowers];
         } else if (buttonIndex == 3) {
             [self searchWithString:repo.userOwner.userFollowing andMethod:methodFollowing];
+        } else if (buttonIndex == 4) {
+            [self searchWithString:repo.userOwner.userUrlPerfil andMethod:methodPerfil];
         }
     };
     
