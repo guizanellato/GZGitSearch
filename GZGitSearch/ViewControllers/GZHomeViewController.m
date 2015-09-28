@@ -56,9 +56,9 @@
      */
     
     if (indexPath.row == 0) {
-        lblTitle = @"Realizar pesquisa por repositórios";
+        lblTitle = @"Search by Repository";
     } else {
-        lblTitle = @"Realizar pesquisa por usuários";
+        lblTitle = @"Search by Users";
     }
     
     cell.textLabel.text = lblTitle;
