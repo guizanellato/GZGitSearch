@@ -12,6 +12,7 @@
 		2B0FB1061BB8C70100829AD6 /* GZUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0FB1041BB8C70100829AD6 /* GZUserTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		2B0FB10B1BB8CA4600829AD6 /* GZFollowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FB10A1BB8CA4600829AD6 /* GZFollowersViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B0FB10F1BB8D33F00829AD6 /* GZFollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FB10E1BB8D33F00829AD6 /* GZFollowingViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2B0FB1131BB8DD4B00829AD6 /* GZPerfilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0FB1121BB8DD4B00829AD6 /* GZPerfilViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B4D7F2D1BB618CD002DD089 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D7F2C1BB618CD002DD089 /* main.m */; };
 		2B4D7F301BB618CD002DD089 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D7F2F1BB618CD002DD089 /* AppDelegate.m */; };
 		2B4D7F3B1BB618CD002DD089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4D7F3A1BB618CD002DD089 /* Assets.xcassets */; };
@@ -63,6 +64,8 @@
 		2B0FB10A1BB8CA4600829AD6 /* GZFollowersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZFollowersViewController.m; sourceTree = "<group>"; };
 		2B0FB10D1BB8D33F00829AD6 /* GZFollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZFollowingViewController.h; sourceTree = "<group>"; };
 		2B0FB10E1BB8D33F00829AD6 /* GZFollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZFollowingViewController.m; sourceTree = "<group>"; };
+		2B0FB1111BB8DD4B00829AD6 /* GZPerfilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZPerfilViewController.h; sourceTree = "<group>"; };
+		2B0FB1121BB8DD4B00829AD6 /* GZPerfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZPerfilViewController.m; sourceTree = "<group>"; };
 		2B4D7F281BB618CD002DD089 /* GZGitSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GZGitSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4D7F2C1BB618CD002DD089 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B4D7F2E1BB618CD002DD089 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -165,6 +168,15 @@
 				2B0FB10E1BB8D33F00829AD6 /* GZFollowingViewController.m */,
 			);
 			name = Following;
+			sourceTree = "<group>";
+		};
+		2B0FB1101BB8DD3900829AD6 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				2B0FB1111BB8DD4B00829AD6 /* GZPerfilViewController.h */,
+				2B0FB1121BB8DD4B00829AD6 /* GZPerfilViewController.m */,
+			);
+			name = Perfil;
 			sourceTree = "<group>";
 		};
 		2B4D7F1F1BB618CD002DD089 = {
@@ -276,6 +288,7 @@
 				2B0FB1011BB8C6D600829AD6 /* Followers */,
 				2B0FB10C1BB8D32700829AD6 /* Following */,
 				2B4D7F7E1BB61D6C002DD089 /* Home */,
+				2B0FB1101BB8DD3900829AD6 /* Perfil */,
 				2B4D7F841BB622C0002DD089 /* Repo Search */,
 				2B4D7F851BB622C2002DD089 /* User Search */,
 				2B0FB1071BB8C70500829AD6 /* Users Cell */,
@@ -684,6 +697,7 @@
 				2B4D7F771BB61A04002DD089 /* GZGitSearch.xcdatamodeld in Sources */,
 				2B0FB1051BB8C70100829AD6 /* GZUserTableViewCell.m in Sources */,
 				2B4D7F961BB63CE9002DD089 /* Repository.m in Sources */,
+				2B0FB1131BB8DD4B00829AD6 /* GZPerfilViewController.m in Sources */,
 				2B4D7FA21BB645B9002DD089 /* RepositoryTableViewCell.m in Sources */,
 				2B4D7F831BB61EAD002DD089 /* BaseViewController.m in Sources */,
 				2B4D7F8B1BB622E8002DD089 /* GZUserSearchViewController.m in Sources */,

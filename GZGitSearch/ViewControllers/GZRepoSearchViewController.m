@@ -167,7 +167,7 @@
                                                     delegate:nil
                                            cancelButtonTitle:@"Cancel"
                                       destructiveButtonTitle:nil
-                                           otherButtonTitles:@"Visit Owner Page", @"Subscribers", nil];
+                                           otherButtonTitles:@"Visit Owner Page", @"Subscribers", @"Owner Followers", @"Owner Following",nil];
     
     as.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
@@ -175,9 +175,13 @@
         if (buttonIndex == 0) {
             // visitar pagina do usuario
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:repo.userOwner.userPageUrl]];
-        } else {
+        } else if (buttonIndex == 1) {
             // ver os assinantes
             [self searchWithString:repo.repositorySubscribers andMethod:methodSubscribers];
+        } else if (buttonIndex == 2) {
+            [self searchWithString:repo.userOwner.userFollowers andMethod:methodFollowers];
+        } else if (buttonIndex == 3) {
+            [self searchWithString:repo.userOwner.userFollowing andMethod:methodFollowing];
         }
     };
     

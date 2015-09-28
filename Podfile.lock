@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DateTools (1.7.0)
   - JTMaterialSpinner (1.0.1)
   - Reachability (3.2)
   - SDWebImage (3.7.3):
@@ -30,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - DateTools
   - JTMaterialSpinner (~> 1.0)
   - Reachability (~> 3.2)
   - SDWebImage (~> 3.7)
@@ -38,6 +40,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   JTMaterialSpinner: 4e025e1511dc2b06975a3b8d758005ec765e9338
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4C1204D90CE31DC13FB4700"
+               BlueprintIdentifier = "D725986BA9F784F3E040E12E"
                BuildableName = "JTMaterialSpinner.framework"
                BlueprintName = "JTMaterialSpinner"
                ReferencedContainer = "container:Pods.xcodeproj">

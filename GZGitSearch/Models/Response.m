@@ -160,4 +160,12 @@ static NSString *keyResponseData = @"items";
     return [[NSMutableArray alloc] init];
 }
 
+- (UserOwner *)getUserFromJson:(NSDictionary *)json {
+    if (json != nil) {
+        return [[UserOwner alloc] initWithDictionary:json];
+    }
+    
+    return nil;
+}
+
 @end

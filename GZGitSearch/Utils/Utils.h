@@ -36,4 +36,14 @@
  */
 + (NSString *)getStringFrom:(id)obj;
 
+/*!
+ * Metodo recebe uma data em forma de string, e formata para exibir ao usuario
+ */
++ (NSString *)convertDateWithString:(NSString *)dateString;
+
+/*!
+ * Metodo recebe um email e retorna se é valido ou nao
+ */
++ (BOOL)isValidEmail:(NSString *)email;
+
 @end

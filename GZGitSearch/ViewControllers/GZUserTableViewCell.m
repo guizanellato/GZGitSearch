@@ -25,7 +25,6 @@
     self.loading.circleLayer.lineWidth = 2.0;
     self.loading.circleLayer.strokeColor = [UIColor lightGrayColor].CGColor;
     [self.loading beginRefreshing];
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

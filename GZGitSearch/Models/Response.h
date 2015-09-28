@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "UserOwner.h"
+
 @interface Response : NSObject
 
 /*!
@@ -39,5 +41,11 @@
  * retorna um array de objetos UserOwner com os que o usuario esta seguindo
  */
 - (NSMutableArray *)getArFollowingFromJson:(NSDictionary *)json;
+
+/*!
+ * Metodo recebe um json de um usuario
+ * Retorna um objeto do tipo UserOwner com o usuario
+ */
+- (UserOwner *)getUserFromJson:(NSDictionary *)json;
 
 @end

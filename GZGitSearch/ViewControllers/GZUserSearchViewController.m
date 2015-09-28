@@ -46,12 +46,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-}
-
 #pragma mark - UISearchBar Delegate
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {

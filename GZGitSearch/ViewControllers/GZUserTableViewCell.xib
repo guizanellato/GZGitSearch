@@ -17,23 +17,23 @@
                         <rect key="frame" x="13" y="10" width="57" height="57"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="57" id="56l-4G-4nX"/>
-                            <constraint firstAttribute="height" constant="57" id="yLd-Yk-c7B"/>
+                            <constraint firstAttribute="height" constant="57" id="89s-kI-e93"/>
+                            <constraint firstAttribute="width" constant="57" id="YU1-s2-ZDl"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHQ-kd-EKV" customClass="JTMaterialSpinner">
                         <rect key="frame" x="24" y="20" width="35" height="35"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="35" id="SXQ-c2-kid"/>
-                            <constraint firstAttribute="height" constant="35" id="jV8-dS-Iyw"/>
+                            <constraint firstAttribute="height" constant="35" id="abM-Xx-OHY"/>
+                            <constraint firstAttribute="width" constant="35" id="i1K-dy-ptV"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vev-bH-wbX">
                         <rect key="frame" x="78" y="17" width="234" height="42"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="42" id="pfa-i7-zEs"/>
+                            <constraint firstAttribute="height" constant="42" id="6VT-i1-Egu"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,15 +42,15 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="CHQ-kd-EKV" firstAttribute="centerX" secondItem="Xwj-w3-O7f" secondAttribute="centerX" id="1cu-7u-JNg"/>
-                    <constraint firstItem="vev-bH-wbX" firstAttribute="top" secondItem="t36-U1-kDE" secondAttribute="top" constant="17" id="Qf6-3U-J1F"/>
-                    <constraint firstItem="Xwj-w3-O7f" firstAttribute="top" secondItem="t36-U1-kDE" secondAttribute="top" constant="10" id="Que-ar-KQB"/>
-                    <constraint firstAttribute="bottom" secondItem="vev-bH-wbX" secondAttribute="bottom" constant="18" id="Thj-IS-4f9"/>
-                    <constraint firstItem="CHQ-kd-EKV" firstAttribute="centerY" secondItem="Xwj-w3-O7f" secondAttribute="centerY" constant="-1" id="Woe-8u-kDd"/>
-                    <constraint firstAttribute="trailing" secondItem="vev-bH-wbX" secondAttribute="trailing" constant="8" id="Z9G-An-RVH"/>
-                    <constraint firstAttribute="bottom" secondItem="Xwj-w3-O7f" secondAttribute="bottom" constant="10" id="eLN-jO-Knc"/>
-                    <constraint firstItem="vev-bH-wbX" firstAttribute="leading" secondItem="Xwj-w3-O7f" secondAttribute="trailing" constant="8" id="fjr-wk-YaX"/>
-                    <constraint firstItem="Xwj-w3-O7f" firstAttribute="leading" secondItem="t36-U1-kDE" secondAttribute="leading" constant="13" id="ydP-mS-nNo"/>
+                    <constraint firstItem="Xwj-w3-O7f" firstAttribute="leading" secondItem="t36-U1-kDE" secondAttribute="leading" constant="13" id="8dr-55-vvz"/>
+                    <constraint firstAttribute="bottom" secondItem="vev-bH-wbX" secondAttribute="bottom" constant="18" id="FIm-58-P29"/>
+                    <constraint firstAttribute="bottom" secondItem="Xwj-w3-O7f" secondAttribute="bottom" constant="10" id="KJW-4c-u1p"/>
+                    <constraint firstItem="Xwj-w3-O7f" firstAttribute="top" secondItem="t36-U1-kDE" secondAttribute="top" constant="10" id="hCm-WB-pQW"/>
+                    <constraint firstAttribute="trailing" secondItem="vev-bH-wbX" secondAttribute="trailing" constant="8" id="iB4-sw-wXa"/>
+                    <constraint firstItem="vev-bH-wbX" firstAttribute="top" secondItem="t36-U1-kDE" secondAttribute="top" constant="17" id="noj-sx-yC6"/>
+                    <constraint firstItem="vev-bH-wbX" firstAttribute="leading" secondItem="Xwj-w3-O7f" secondAttribute="trailing" constant="8" id="rqo-ty-NUu"/>
+                    <constraint firstItem="CHQ-kd-EKV" firstAttribute="centerY" secondItem="Xwj-w3-O7f" secondAttribute="centerY" constant="-1" id="sAa-g4-vxK"/>
+                    <constraint firstItem="CHQ-kd-EKV" firstAttribute="centerX" secondItem="Xwj-w3-O7f" secondAttribute="centerX" id="uaq-07-6mA"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>

@@ -53,6 +53,7 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-GZGitSearchTests/AFNetworking.framework'
+  install_framework 'Pods-GZGitSearchTests/DateTools.framework'
   install_framework 'Pods-GZGitSearchTests/JTMaterialSpinner.framework'
   install_framework 'Pods-GZGitSearchTests/Reachability.framework'
   install_framework 'Pods-GZGitSearchTests/SDWebImage.framework'
@@ -61,6 +62,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-GZGitSearchTests/AFNetworking.framework'
+  install_framework 'Pods-GZGitSearchTests/DateTools.framework'
   install_framework 'Pods-GZGitSearchTests/JTMaterialSpinner.framework'
   install_framework 'Pods-GZGitSearchTests/Reachability.framework'
   install_framework 'Pods-GZGitSearchTests/SDWebImage.framework'

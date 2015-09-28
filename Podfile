@@ -8,6 +8,7 @@ target 'GZGitSearch' do
 	pod "AFNetworking", "~> 2.0"
 	pod 'JTMaterialSpinner', '~> 1.0'
 	pod 'UIActionSheet+Blocks'	
+	pod 'DateTools'
 end
 
 target 'GZGitSearchTests' do
@@ -16,7 +17,8 @@ target 'GZGitSearchTests' do
 	pod 'SDWebImage', '~>3.7'
 	pod "AFNetworking", "~> 2.0"
 	pod 'JTMaterialSpinner', '~> 1.0'
-	pod 'UIActionSheet+Blocks'	
+	pod 'UIActionSheet+Blocks'
+	pod 'DateTools'	
 end
 
 target 'GZGitSearchUITests' do
@@ -25,6 +27,7 @@ target 'GZGitSearchUITests' do
 	pod 'SDWebImage', '~>3.7'
 	pod "AFNetworking", "~> 2.0"
 	pod 'JTMaterialSpinner', '~> 1.0'
-	pod 'UIActionSheet+Blocks'	
+	pod 'UIActionSheet+Blocks'
+	pod 'DateTools'	
 end
 

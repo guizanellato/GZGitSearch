@@ -19,10 +19,12 @@
 #import "GZSubscribersViewController.h"
 #import "GZFollowersViewController.h"
 #import "GZFollowingViewController.h"
+#import "GZPerfilViewController.h"
 
 #define BUTTON_USER_PAGE 0
 #define BUTTON_USER_FOLLOWERS 1
 #define BUTTON_USER_FOLLOWING 2
+#define BUTTON_USER_PERFIL 3
 
 @interface BaseViewController ()
 
@@ -58,6 +60,9 @@
     if ([segue.identifier isEqualToString:@"openSubscribers"]) {
         GZSubscribersViewController *vc = segue.destinationViewController;
         vc.dataSource = (NSMutableArray *)sender;
+    } else if ([segue.identifier isEqualToString:@"openPerfil"]) {
+        GZPerfilViewController *vc = segue.destinationViewController;
+        vc.perfil = (UserOwner *)sender;
     }
     
 }
@@ -120,6 +125,16 @@
         data = [[[Response alloc] init] getArRepositorysFromJson:jsonResponse];
     } else if (methodType == methodUserSearch) {
         data = [[[Response alloc] init] getArUsersFromJson:jsonResponse];
+    } else if (methodType == methodPerfil) {
+        UserOwner *user = [[[Response alloc] init] getUserFromJson:jsonResponse];
+        
+        if (user != nil) {
+            [self performSegueWithIdentifier:@"openPerfil" sender:user];
+        } else {
+            [Utils showAlertWithTitle:@"Oops" andMessage:@"Sorry, it was not possible to open the Perfil. Please, try again"];
+        }
+        
+        return;
     } else if (methodType == methodSubscribers) {
         data = [[[Response alloc] init] getArSubscribersFromJson:jsonResponse];
         
@@ -173,7 +188,7 @@
                                                     delegate:nil
                                            cancelButtonTitle:@"Cancel"
                                       destructiveButtonTitle:nil
-                                           otherButtonTitles:@"Visit User Page", @"User Followers", @"User Following",nil];
+                                           otherButtonTitles:@"Visit User Page", @"User Followers", @"User Following", @"User Perfil",nil];
     
     as.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
@@ -187,6 +202,8 @@
             [self searchWithString:user.userFollowers andMethod:methodFollowers];
         } else if (buttonIndex == BUTTON_USER_FOLLOWING) {
             [self searchWithString:user.userFollowing andMethod:methodFollowing];
+        } else if (buttonIndex == BUTTON_USER_PERFIL) {
+            [self searchWithString:user.userUrlPerfil andMethod:methodPerfil];
         }
         
     };
@@ -226,7 +243,10 @@
          * Quando for do tipo busca por usuario, base colocar a string na desc.
          */
         url = [NSString stringWithFormat:@"https://api.github.com/search/users?q=%@", string];
-    } else if (methodType == methodSubscribers || methodType == methodFollowing || methodType == methodFollowers) {
+    } else if (methodType == methodSubscribers ||
+               methodType == methodFollowing ||
+               methodType == methodFollowers ||
+               methodType == methodPerfil) {
         /*
          * Os seguintes metodos ja vem com a url pronta para o GET
          */

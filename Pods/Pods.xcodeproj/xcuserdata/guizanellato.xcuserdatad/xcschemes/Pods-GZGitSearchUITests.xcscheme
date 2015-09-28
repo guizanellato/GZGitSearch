@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D36A8FF9E56A0A497D600035"
+               BlueprintIdentifier = "5008C0543C33408DA4F0106F"
                BuildableName = "Pods_GZGitSearchUITests.framework"
                BlueprintName = "Pods-GZGitSearchUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
