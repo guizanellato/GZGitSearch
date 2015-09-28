@@ -123,7 +123,11 @@
     } else if (methodType == methodSubscribers) {
         data = [[[Response alloc] init] getArSubscribersFromJson:jsonResponse];
         
-        [self performSegueWithIdentifier:@"openSubscribers" sender:data];
+        if (data.count > 0) {
+            [self performSegueWithIdentifier:@"openSubscribers" sender:data];
+        } else {
+            [Utils showAlertWithTitle:@"Oops" andMessage:@"This User has no Subscribers"];
+        }
         
         return;
     } else if (methodType == methodFollowers) {
@@ -132,20 +136,30 @@
          * Motivo: dentro de followers, pode abrir followers novamente e assim por diante eternamente
          * Um jeito para se resolver seria criar um button "fantasma" e criar o segue para a propria view
          * Porem seria um modo grotesco para realizar e dificil de dar uma manutencao futuramente
+         * caso nao tenha nenhum seguidor, apresentar alert ao usuario
          */
         data = [[[Response alloc] init] getArFollowersFromJson:jsonResponse];
-
-        [self openFollowersWithDataSource:data];
+        
+        if (data.count > 0) {
+            [self openFollowersWithDataSource:data];
+        } else {
+            [Utils showAlertWithTitle:@"Oops" andMessage:@"This User has no Followers"];
+        }
         
         return;
     } else if (methodType == methodFollowing) {
         /*
          * Caso de quem o usuario esta seguindo, seria igual o de Followers
          * Pelo motivo de que um pode abrir outro igual (mesma viewController)
+         * caso nao tenha nenhum seguindo, apresentar alert ao usuario informando
          */
-        data = [[[Response alloc] init] getArFollowersFromJson:jsonResponse];
+        data = [[[Response alloc] init] getArFollowingFromJson:jsonResponse];
         
-        [self openFollowingWithDataSource:data];
+        if (data.count > 0) {
+            [self openFollowingWithDataSource:data];
+        } else {
+            [Utils showAlertWithTitle:@"Oops" andMessage:@"This User is not Following anyone"];
+        }
         
         return;
     }
